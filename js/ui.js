@@ -13,7 +13,7 @@
     window.ghOrgs.buildList = function buildList(data) {
       data.forEach(function getGHOrgs(githubData) {
           $('ul')
-            .append($('<li><img src='+githubData.avatar_url+'/>'+githubData.login+'</li>'))
+            .append($('<li><img src='+githubData.avatar_url+'/> '+githubData.login+'</li>'))
         console.log(githubData);
       })
     }//ends buildList function
