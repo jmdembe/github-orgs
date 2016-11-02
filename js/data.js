@@ -1,8 +1,8 @@
 (function() {
     'use strict';
-    window.$ghOrgs = window.$ghOrgs || {};
+    window.ghOrgs = window.ghOrgs || {};
 
-    window.$ghOrgs.getGithubData = function getGithubData(token) {
+    window.ghOrgs.getGithubData = function getGithubData(token) {
       // ajax call!
       // when done... execute a fn on the ui module passing in the data
       $.ajax({
@@ -13,7 +13,7 @@
           }
         })
         .done(function handleGHOrgs(data){
-            window.$ghOrgs.buildList(data);
+            window.ghOrgs.buildList(data);
           })
           .fail(function handleGHOrgError(xhr) {
               console.log("Well this is embarrassing...", xhr);
