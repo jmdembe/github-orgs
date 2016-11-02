@@ -8,20 +8,15 @@
             var token = $('input').val();
             var githubData = window.$ghOrgs.getGithubData(token);
 
-        })
+        })//ends button click event
 
     window.$ghOrgs.buildList = function buildList(data) {
       data.forEach(function getGHOrgs(githubData) {
           $('ul')
-            .append($('<li><img src=#></li>'))
+            .append($('<li>Hello!</li>'))
         console.log(githubData);
       })
-    }
-
-
-    // event handler for button
-    // when clicked get github data give it the token
-
+    }//ends buildList function
 
 
 
