@@ -1,26 +1,22 @@
 (function() {
     'use strict';
-    window.GHOrgs = window.GHOrgs || {};
+    window.$ghOrgs = window.$ghOrgs || {};
 
-
-    $('button')
-        .on('click', function getGHInfo(event) {
-            var token = $('input').val();
-            $.ajax({
-                url: 'https://api.github.com/users/jisaacks/orgs',
-                dataType: 'json',
-                headers: {
-                    Authorization: 'token ' + token
-                }
-            })
-        .done(function handleGHOrgs(data){
-            console.log("YAY DATA!");
-            console.log(data);
+    window.$ghOrgs.getGithubData = function getGithubData(token) {
+      // ajax call!
+      // when done... execute a fn on the ui module passing in the data
+      $.ajax({
+          url: 'https://api.github.com/users/jisaacks/orgs',
+          dataType: 'json',
+          headers: {
+              Authorization: 'token ' + token
+          }
         })
-        .fail(function handleGHOrgError(xhr) {
-            console.log("Well this is embarrassing...", xhr);
-        });
-
-      });
-
+        .done(function handleGHOrgs(data){
+            window.$ghOrgs.buildList(data);
+          })
+          .fail(function handleGHOrgError(xhr) {
+              console.log("Well this is embarrassing...", xhr);
+          })
+  }
 })();
